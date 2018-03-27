@@ -1,0 +1,91 @@
+html{
+    width: 768px;
+    margin: 0px auto;
+    background-color: gray;
+}
+body{
+    background-color: white;
+    min-height: 650px;
+    border-radius: 10px;
+}
+#header{
+
+    background-color: yellow;
+    border-bottom: 5px solid blue;
+    padding: 10px;
+    color: blue;
+    border-radius: 10px;
+}
+span{
+    font-size: 46px;
+}
+h2{
+    position: relative;
+    bottom: 10px;
+}
+img{
+    border-radius: 20px;
+}
+button{
+    float: right;
+    border-radius: 10px;
+    width: 50px;
+    background-color: blue;
+    color: white;
+    
+}
+input{
+    width: 135px;
+    border-radius: 10px;
+    border: 3px solid blue;
+    padding-left: 10px;
+    float: left;
+}
+#heading{
+    margin: 10px;
+    text-align: center;
+}
+#footer{
+
+    background-color: blue;
+    color: white;
+    position: fixed;
+    top: 622px; 
+    left: 305px;
+    width: 770px;
+    height: 40px;
+    border-top: 5px solid yellow;
+}
+h6{
+    text-align: center;
+    position: relative;
+    left: 270px;
+    top: 10px;
+}
+.listErea{
+ margin-left: 10px;
+}
+
+.items:hover{
+    background-color: yellow;
+}
+.coupons{
+    margin-top: 20px;
+}
+
+#redArrow{
+    margin-right: 30px;
+    margin-top: 15px;
+
+}
+#greenArrow{
+    margin-left: 30px;
+    margin-top: 15px;  
+}
+.button{
+    position: relative;
+    left: 30px;
+}
+#greenArrow:hover{
+    background-color: yellow;
+}
