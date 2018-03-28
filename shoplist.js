@@ -11,9 +11,9 @@ $(document).ready(function(){
         for(var i=0; i<myList.length; i++){
             $(".button").append(`
                <div class="row">
-                <img class="avaibility" id="redArrow" src="redArrow.jpg" alt="redArrow">
+                <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
                 <button class= "items">${myList[i]}</button>             
-                <img class="avaibility" id="greenArrow" src="valideArrow.jpg" alt="greenArrow">
+                <img class="avaibility" id="greenArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/valideArrow.jpg" alt="greenArrow">
                </div>
            `);
            $(".avaibility").attr("value", myList[i]);
