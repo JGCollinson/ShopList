@@ -12,9 +12,9 @@ $(document).ready(function(){
         var inputVal = $("#add").val().trim();
         myList.push(inputVal);
         console.log(myList);
-        $(".button").empty()
+        $(".uderList").empty()
         for(var i=0; i<myList.length; i++){
-            $(".button").append(`
+            $(".uderList").append(`
                <div class="row">
                 <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
                 <button class= "items">${myList[i]}</button>             

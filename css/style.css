@@ -26,7 +26,7 @@ h2{
 img{
     border-radius: 20px;
 }
-button{
+#addButton{
     float: right;
     border-radius: 10px;
     width: 50px;
