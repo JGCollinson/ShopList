@@ -1,0 +1,31 @@
+Arts, Crafts & Sewing|1334134
+shoplist.js:30 Auto & Tires|91083
+shoplist.js:30 Baby|5427
+shoplist.js:30 Beauty|1085666
+shoplist.js:30 Books|3920
+shoplist.js:30 Cell Phones|1105910
+shoplist.js:30 Clothing|5438
+shoplist.js:30 Electronics|3944
+shoplist.js:30 Food|976759
+shoplist.js:30 Gifts & Registry|1094765
+shoplist.js:30 Health|976760
+shoplist.js:30 Home|4044
+shoplist.js:30 Home Improvement|1072864
+shoplist.js:30 Household Essentials|1115193
+shoplist.js:30 Industrial & Scientific|6197502
+shoplist.js:30 Jewelry|3891
+shoplist.js:30 Movies & TV Shows|4096
+shoplist.js:30 Music on CD or Vinyl|4104
+shoplist.js:30 Musical Instruments|7796869
+shoplist.js:30 Office|1229749
+shoplist.js:30 Party & Occasions|2637
+shoplist.js:30 Patio & Garden|5428
+shoplist.js:30 Personal Care|1005862
+shoplist.js:30 Pets|5440
+shoplist.js:30 Photo Center|5426
+shoplist.js:30 Premium Beauty|7924299
+shoplist.js:30 Seasonal|1085632
+shoplist.js:30 Sports & Outdoors|4125
+shoplist.js:30 Toys|4171
+shoplist.js:30 Video Games|2636
+shoplist.js:30 Walmart for Business|6735581

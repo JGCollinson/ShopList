@@ -25,13 +25,9 @@ $.ajax({
     url: "http://crossorigin.me/http://api.walmartlabs.com/v1/taxonomy?format=json&apiKey=x5k7prwzkqgurwt4n33rt74g",
     method: "GET"
 }).then(function(response) {
-    var i, j;
+    var i;
     for (i in response.categories) {
-         console.log(response.categories[i].name)
-         console.log("--------------------")
-        for (j in response.categories[i].children) {
-          console.log(response.categories[i].children[j].name)
-        };
+         console.log(response.categories[i].name + "|" + response.categories[i].id)
   };
 })
 
