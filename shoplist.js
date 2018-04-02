@@ -17,71 +17,75 @@ function productInfo() {
         console.log(results[0].offerType);
     })
 };
+
+var latitued;
+var longitude;
+
 function latLongLookup() {
     var zipCode = "30309"
     var queryURL =
-        "https://www.zipcodeapi.com/rest/ycSGL95P7qvqRje1BBye5ASSV4LaYIrbGOJzDF1yP6Me5yQmG9YGPneweDWslVM5/info.json/" +
+        "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/ycSGL95P7qvqRje1BBye5ASSV4LaYIrbGOJzDF1yP6Me5yQmG9YGPneweDWslVM5/info.json/" +
         zipCode +
         "degrees";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).done(function (response) {
-        var latitude = response.lat;
-        var longitude  = response.lng;
+        latitude = response.lat;
+        longitude  = response.lng;
         console.log(response.lat);
         console.log(response.lng);
-    })
-};
-
-var map;
-var infowindow;
-
-function initMap() {
-  var pyrmont = {lat: -33.867, lng: 151.195};
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: pyrmont,
-    zoom: 15
-  });
-
-  infowindow = new google.maps.InfoWindow();
-  var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch({
-    location: pyrmont,
-    radius: 500,
-    type: ['grocery']
-  }, callback);
-}
-
-function callback(results, status) {
-  if (status === google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      createMarker(results[i]);
-    }
-  }
-}
-
-function createMarker(place) {
-  var placeLoc = place.geometry.location;
-  var marker = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location
-  });
-
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
-  });
-};
-
-
-productInfo();
-
-
-
-// var myList = [];
-// $(document).ready(function () {
+      })
+    };
+    
+    productInfo();
+    latLongLookup();
+    
+    var map;
+    var infowindow;
+    
+    function initMap() {
+      var pyrmont = {lat: -33.867, lng: 151.195};
+    
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: pyrmont,
+        zoom: 15
+      });
+    
+      infowindow = new google.maps.InfoWindow();
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: pyrmont,
+        radius: 500,
+        type: ['store']
+      }, callback);
+    };
+    
+    function callback(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          createMarker(results[i]);
+        }
+      }
+    };
+    
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+      });
+    };
+    
+    
+    
+    // var myList = [];
+    // $(document).ready(function () {
 
     // $.ajax({
     //     url: "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/search?query=paper&format=json&categoryId=1334134&apiKey=x5k7prwzkqgurwt4n33rt74g",

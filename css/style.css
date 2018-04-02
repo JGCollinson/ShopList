@@ -1,4 +1,7 @@
-html{
+#map{
+    height: 100%;
+  }
+  html{
     width: 768px;
     margin: 0px auto;
     background-color: gray;
@@ -10,7 +13,7 @@ body{
 }
 #header{
 
-    background-color: yellow;
+    background-color: #EF820D;
     border-bottom: 5px solid blue;
     padding: 10px;
     color: blue;
@@ -26,7 +29,7 @@ h2{
 img{
     border-radius: 20px;
 }
-#addButton{
+#addButtons{
     float: right;
     border-radius: 10px;
     width: 50px;
@@ -45,22 +48,40 @@ input{
     margin: 10px;
     text-align: center;
 }
-#footer{
-
+#dropdown_menu{
+    color: black;
+    width: 350px;
+    height: 300px;
+    overflow: auto;
+}
+.category:hover{
     background-color: blue;
     color: white;
-    position: fixed;
-    top: 622px; 
-    left: 305px;
-    width: 770px;
-    height: 40px;
-    border-top: 5px solid yellow;
 }
-h6{
-    text-align: center;
+
+.plotlyContents{
+    background-color: gray;
+    height: 100%;
     position: relative;
-    left: 270px;
-    top: 10px;
+    right: 10px;
+    border-top: 5px solid gray;
+    border-bottom: 5px solid gray;
+
+}
+#commercialBoad{
+    height: 100px;
+}
+#footer{
+
+    background-color: #EF820D;
+    border-top: 5px solid blue;
+    padding: 10px;
+    color: blue;
+    text-align: center;
+}
+.footer{
+    position: relative;
+    left: 330px;
 }
 .listErea{
  margin-left: 10px;
@@ -74,18 +95,32 @@ h6{
 }
 
 #redArrow{
-    margin-right: 30px;
-    margin-top: 15px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
 
-}
-#greenArrow{
-    margin-left: 30px;
-    margin-top: 15px;  
-}
 .button{
     position: relative;
     left: 30px;
 }
 #greenArrow:hover{
     background-color: yellow;
+}
+
+.listContents{
+    padding-left: 40px;
+}
+.listHead{
+    text-align: center;
+    font-family: bold;
+    font-size: 18px;
+}
+.itemNamesHead{margin-left: 50px;}
+.itemQty{margin-left: 10px;}
+.itemCategory{margin-right: 50px;}
+h6{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
