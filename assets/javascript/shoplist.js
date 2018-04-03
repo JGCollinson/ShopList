@@ -18,7 +18,12 @@ function productInfo() {
     })
 };
 
-var zip = parseInt(prompt("What's your zip code?"));
+$(document).on("click",".addZipBtn", function(){
+    var zip = $(".addZipInput").val().trim();
+    console.log(zip)
+    latLongLookup();
+})
+// var zip = parseInt(prompt("What's your zip code?"));
 var latitude;
 var longitude;
 
@@ -94,7 +99,7 @@ $(document).ready(function(){
     }];
     
     //---------------PLOTLY-----------------------
-    Plotly.newPlot('tester', data);
+    Plotly.newPlot('#tester', data);
     //--------------------------------------------  
     $("#addButtons").on("click", function(){ 
         event.preventDefault();
