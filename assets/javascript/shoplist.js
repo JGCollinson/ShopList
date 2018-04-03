@@ -33,9 +33,8 @@ function latLongLookup(zip) {
     }).done(function (response) {
         latitude = Number(response.lat);
         longitude  = Number(response.lng);
-        var mapobject = $("#data");
-        mapobject.attr("lat", latitude);
-        mapobject.attr("lng", longitude);
+        console.log(latitude);
+        console.log(longitude);
     })
 };
 var map;
