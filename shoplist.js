@@ -1,3 +1,71 @@
+
+
+
+var myList = [];
+$(document).ready(function(){
+    
+    var data = [{
+        values: [19, 26, 55],
+        labels: ['Residential', 'Non-Residential', 'Utility'],
+        type: 'pie'
+    }];
+    
+    //---------------PLOTLY-----------------------
+    Plotly.newPlot('tester', data);
+    //--------------------------------------------  
+    $("#addButtons").on("click", function(){ 
+        event.preventDefault();
+        var inputVal = $("#addNumber").val().trim();
+        myList.push(inputVal);
+        console.log(myList);
+        $(".userList").empty()
+        for(var i=0; i<myList.length; i++){
+            $("#addNumber").val("");
+            $(".userList").append(`
+               <div class="row">
+                <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
+                <h6 class="itemNames"></h6>
+                <button class= "numbers">${myList[i]}</button>
+                <h6 class="listCategory"></h6>       
+                
+               </div>
+           `);
+        
+            $(".numbers").css({
+            "border": "3px solid yellow", 
+            "background-color": "blue", 
+            "color": "white",
+            "width": "50px",
+            "text-align": "center",
+            "height": "40px",
+            "margin-top": "5px"
+            });
+    
+            $(".itemNames").css({
+            "border": "3px solid yellow", 
+            "background-color": "blue", 
+            "color": "white",
+            "width": "180px",
+            "text-align": "center",
+            "height": "40px",
+            "margin-top": "5px",
+            "margin-right": "10px"
+            });
+    
+            $(".listCategory").css({
+            "border": "3px solid yellow", 
+            "background-color": "blue", 
+            "color": "white",
+            "width": "180px",
+            "text-align": "center",
+            "height": "40px",
+            "margin-top": "5px",
+            "margin-left": "10px"
+            });  
+        }
+    });
+    });
+    
 function productInfo() {
     var itemName = "tomato"
     var itemVal = "976759"
@@ -31,13 +99,14 @@ function latLongLookup() {
         url: queryURL,
         method: "GET"
     }).done(function (response) {
-        latitude = response.lat;
-        longitude  = response.lng;
-        console.log(response.lat);
-        console.log(response.lng);
+        latitude = Number(response.lat);
+        longitude  = Number(response.lng);
+        console.log(latitude);
+        console.log(longitude);
+
       })
     };
-    
+
     productInfo();
     latLongLookup();
     
@@ -81,61 +150,3 @@ function latLongLookup() {
         infowindow.open(map, this);
       });
     };
-    
-    
-    
-    // var myList = [];
-    // $(document).ready(function () {
-
-    // $.ajax({
-    //     url: "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/search?query=paper&format=json&categoryId=1334134&apiKey=x5k7prwzkqgurwt4n33rt74g",
-    //     method: "GET"
-    // }).then(function(response) {
-    //     var i;
-    //     for (i in response.categories) {
-    //          console.log(response.categories[i].name + "|" + response.categories[i].id)
-    //   };
-    // })
-    // $.ajax({
-    //     url: "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/search?query=paper&format=json&categoryId=1334134&apiKey=x5k7prwzkqgurwt4n33rt74g",
-    //     method: "GET"
-    // }).then(function(response) {
-    //          console.log(response)
-    //   }
-    // );
-
-
-
-
-//     $("#addButton").on("click", function () {
-//         event.preventDefault();
-//         var inputVal = $("#add").val().trim();
-//         myList.push(inputVal);
-//         console.log(myList);
-//         $(".button").empty()
-//         for (var i = 0; i < myList.length; i++) {
-//             $(".button").append(`
-//                <div class="row">
-//                 <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
-//                 <button class= "items">${myList[i]}</button>             
-//                 <img class="avaibility" id="greenArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/valideArrow.jpg" alt="greenArrow">
-//                </div>
-//            `);
-//             $(".avaibility").attr("value", myList[i]);
-//             $(".items").css({
-//                 "border": "3px solid yellow",
-//                 "background-color": "blue",
-//                 "color": "white",
-//                 "width": "200px",
-//                 "text-align": "center",
-//                 "height": "40px",
-//                 "margin-top": "5px"
-//             });
-
-
-//         }
-//     });
-
-//     // Green arrow effects...............................
-
-// });
