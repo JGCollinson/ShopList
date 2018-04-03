@@ -18,36 +18,36 @@ function productInfo() {
     })
 };
 
-var zip = parseInt(prompt("What's your zip code?"));
-var latitude;
-var longitude;
-
 function latLongLookup(zip) {
     var queryURL =
     "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/ycSGL95P7qvqRje1BBye5ASSV4LaYIrbGOJzDF1yP6Me5yQmG9YGPneweDWslVM5/info.json/" +
     zip +
-    "degrees";
+    "/degrees";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).done(function (response) {
-        latitude = Number(response.lat);
-        longitude  = Number(response.lng);
+        var latitude = Number(response.lat);
+        var longitude  = Number(response.lng);
+        console.log(latitude, longitude)
         var mapobject = $("#data");
         mapobject.attr("lat", latitude);
         mapobject.attr("lng", longitude);
+        initMap(latitude, longitude)
     })
 };
 var map;
 var infowindow;
 
-function initMap() {
-  var pyrmont = {lat: 33.799867, lng: -84.385799};
+function initMap(lat, long) {
+  var pyrmont = {lat: lat, lng: long};
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
     zoom: 14
   });
+
+  console.log(`Pyrmont is ${JSON.stringify(pyrmont)}`);
 
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
@@ -60,7 +60,6 @@ function initMap() {
 };
 
 productInfo();
-
 
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -83,6 +82,11 @@ function createMarker(place) {
   });
 };
 
+// $(document).on("click", ".zipButton", function(){
+//     var zip = parseInt($("#zipInput").val());
+//     latLongLookup(zip);
+// });
+
 var myList = [];
 $(document).ready(function(){
     
@@ -93,7 +97,8 @@ $(document).ready(function(){
         labels: ['Residential', 'Non-Residential', 'Utility'],
         type: 'pie'
     }];
-    
+    var zip = parseInt(prompt("What's your zip code?"));
+    latLongLookup(zip);
     //---------------PLOTLY-----------------------
     Plotly.newPlot('tester', data);
     //--------------------------------------------  
