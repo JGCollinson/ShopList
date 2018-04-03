@@ -2,30 +2,43 @@
 
 
 var myList = [];
+var itemList =[];
+var categories = [];
 $(document).ready(function(){
 
+
+//---------------PLOTLY-----------------------
     var data = [{
         values: [19, 26, 55],
         labels: ['Residential', 'Non-Residential', 'Utility'],
         type: 'pie'
       }];
-      
-//---------------PLOTLY-----------------------
+
       Plotly.newPlot('tester', data);
 //--------------------------------------------  
-    
+    $(".category").on("click", function(){
+       categories.push($(this).val());
+       console.log($(this).val());
+    })
     $("#addButtons").on("click", function(){ 
         event.preventDefault();
         var inputVal = $("#addNumber").val().trim();
+        var itemVal = $(".addItems").val().trim();
         myList.push(inputVal);
+        itemList.push(itemVal);
+        
         console.log(myList);
         $(".userList").empty()
+        $(".addItems").empty()
         for(var i=0; i<myList.length; i++){
             $("#addNumber").val("");
+            for (var x=0; x <itemList.length; x++){
+                $(".addItems").val();
+            }
             $(".userList").append(`
                <div class="row">
                 <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
-                <h6 class="itemNames"></h6>
+                <h6 class="itemNames">${itemList[i]}</h6>
                 <button class= "numbers">${myList[i]}</button>
                 <h6 class="listCategory"></h6>       
                 

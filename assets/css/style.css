@@ -9,7 +9,6 @@ body{
     border-radius: 10px;
 }
 #header{
-
     background-color: #EF820D;
     border-bottom: 5px solid blue;
     padding: 10px;
@@ -23,7 +22,7 @@ h2{
     position: relative;
     bottom: 10px;
 }
-img{
+.logo{
     border-radius: 20px;
 }
 #addButtons{
@@ -66,8 +65,15 @@ input{
 
 }
 #commercialBoad{
-    height: 100px;
+    padding-right: 40px;
+    height: 200px;
+    border: 3px dotted grey;
+    border-left: none;
+    border-right: none;
+    margin-top: 10px;
+    overflow: hidden;
 }
+
 #footer{
 
     background-color: #EF820D;
@@ -75,6 +81,7 @@ input{
     padding: 10px;
     color: blue;
     text-align: center;
+    margin-top: 10px;
 }
 .footer{
     position: relative;
@@ -112,6 +119,7 @@ input{
     font-family: bold;
     font-size: 18px;
 }
+.addItems{width: 50px !important;}
 .itemNamesHead{margin-left: 50px;}
 .itemQty{margin-left: 10px;}
 .itemCategory{margin-right: 50px;}
@@ -120,4 +128,14 @@ h6{
     border-bottom-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+.slider{
+    position: relative;
+    left: 110px;
+}
+.slidImages{
+    height: 200px;
+    width: 500px;
+    margin-left: 20px;
+    border-right: 20px;
 }
