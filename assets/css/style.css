@@ -1,7 +1,4 @@
-#map{
-    height: 100%;
-  }
-  html{
+html{
     width: 768px;
     margin: 0px auto;
     background-color: gray;
