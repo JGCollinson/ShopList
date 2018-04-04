@@ -1,2 +1,0 @@
-# ShopList
-Grocery Shopping Tool
