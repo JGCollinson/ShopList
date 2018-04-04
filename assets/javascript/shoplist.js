@@ -21,29 +21,28 @@ function productInfo() {
 var zip = parseInt(prompt("What's your zip code?"));
 var latitude;
 var longitude;
-
 function latLongLookup(zip) {
-    var queryURL =
-    "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/ycSGL95P7qvqRje1BBye5ASSV4LaYIrbGOJzDF1yP6Me5yQmG9YGPneweDWslVM5/info.json/" +
-    zip +
-    "degrees";
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/ycSGL95P7qvqRje1BBye5ASSV4LaYIrbGOJzDF1yP6Me5yQmG9YGPneweDWslVM5/info.json/" + zip + "degrees";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).done(function (response) {
         latitude = Number(response.lat);
         longitude  = Number(response.lng);
-        console.log(latitude);
-        console.log(longitude);
     })
 };
+console.log("global" + latitude);
+console.log("global" + longitude);
+latLongLookup(zip);
 var map;
 var infowindow;
 
 function initMap() {
-  var pyrmont = {lat: 33.799867, lng: -84.385799};
-
-  map = new google.maps.Map(document.getElementById('map'), {
+    var pyrmont = {lat: 33.799867, lng: -84.385799};
+    console.log("google" + latitude);
+    console.log("google " + longitude);
+    
+    map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
     zoom: 14
   });
@@ -58,30 +57,28 @@ function initMap() {
   }, callback);
 };
 
-productInfo();
-
-
 function callback(results, status) {
-  if (status === google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      createMarker(results[i]);
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+        }
     }
-  }
 };
 
 function createMarker(place) {
-  var placeLoc = place.geometry.location;
-  var marker = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location
-  });
-
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
-  });
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+    
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+    });
 };
 
+productInfo();
 var myList = [];
 $(document).ready(function(){
     
@@ -105,23 +102,23 @@ $(document).ready(function(){
         for(var i=0; i<myList.length; i++){
             $("#addNumber").val("");
             $(".userList").append(`
-               <div class="row">
-                <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
-                <h6 class="itemNames"></h6>
-                <button class= "numbers">${myList[i]}</button>
-                <h6 class="listCategory"></h6>       
-                
-               </div>
-           `);
-        
+            <div class="row">
+            <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
+            <h6 class="itemNames"></h6>
+            <button class= "numbers">${myList[i]}</button>
+            <h6 class="listCategory"></h6>       
+            
+            </div>
+            `);
+            
             $(".numbers").css({
-            "border": "3px solid yellow", 
-            "background-color": "blue", 
-            "color": "white",
-            "width": "50px",
-            "text-align": "center",
-            "height": "40px",
-            "margin-top": "5px"
+                "border": "3px solid yellow", 
+                "background-color": "blue", 
+                "color": "white",
+                "width": "50px",
+                "text-align": "center",
+                "height": "40px",
+                "margin-top": "5px"
             });
     
             $(".itemNames").css({
