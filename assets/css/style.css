@@ -5,9 +5,11 @@ html{
 }
 body{
     background-color: white;
+    min-height: 650px;
     border-radius: 10px;
 }
 #header{
+
     background-color: #EF820D;
     border-bottom: 5px solid blue;
     padding: 10px;
@@ -21,21 +23,28 @@ h2{
     position: relative;
     bottom: 10px;
 }
-.logo{
+img{
     border-radius: 20px;
 }
+thead{
+    background-color: gray;
+}
+tfoot{
+    background-color: gray;
+}
+.content{
+    padding: 0px 30px
+}
 #addButtons{
-    
+    float: right;
     border-radius: 10px;
-    width: 100px;
-    height: 45px;
+    width: 50px;
     background-color: blue;
-    border: 3px solid  #EF820D;
     color: white;
     
 }
 input{
-    width: 100%;
+    width: 135px;
     border-radius: 10px;
     border: 3px solid blue;
     padding-left: 10px;
@@ -44,12 +53,6 @@ input{
 #heading{
     margin: 10px;
     text-align: center;
-}
-#dopdownBtn{
-    background-color: blue;
-    border: 3px solid  #EF820D;
-    border-radius: 10px;
-    color: white;
 }
 #dropdown_menu{
     color: black;
@@ -61,22 +64,23 @@ input{
     background-color: blue;
     color: white;
 }
-.plotly{
-    height: 300px;
-    width: 300px;
+#listTable{
+    margin: 10px;
+    border: 3px double #EF820D;
 }
 
+.plotlyContents{
+    background-color: gray;
+    height: 100%;
+    position: relative;
+    right: 10px;
+    border-top: 5px solid gray;
+    border-bottom: 5px solid gray;
 
+}
 #commercialBoad{
-    padding-right: 40px;
-    height: 200px;
-    border: 3px dotted grey;
-    border-left: none;
-    border-right: none;
-    margin-top: 10px;
-    overflow: hidden;
+    height: 100px;
 }
-
 #footer{
 
     background-color: #EF820D;
@@ -84,14 +88,11 @@ input{
     padding: 10px;
     color: blue;
     text-align: center;
-    margin-top: 10px;
-    position: relative;
-   
 }
 .footer{
+    position: relative;
     left: 330px;
 }
-
 .listErea{
  margin-left: 10px;
 }
@@ -124,7 +125,6 @@ input{
     font-family: bold;
     font-size: 18px;
 }
-.addItems{width: 50px !important;}
 .itemNamesHead{margin-left: 50px;}
 .itemQty{margin-left: 10px;}
 .itemCategory{margin-right: 50px;}
@@ -134,16 +134,4 @@ h6{
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-.slider{
-    position: relative;
-    left: 110px;
-}
-.slidImages{
-    height: 200px;
-    width: 500px;
-    margin-left: 20px;
-    border-right: 20px;
-}
-#map{
-    border: 3px solid #EF820D;
-}
+
