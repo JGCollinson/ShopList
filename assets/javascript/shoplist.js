@@ -116,6 +116,13 @@ function productInfo() {
         console.log(qty);
         console.log(category);
         console.log(productName);
+        var things = (productName + " " + qty + " " + category);
+        var stuffThing = $("<div class='appendedThings'>").text(things);
+        $("tbody").append(stuffThing);
+        $(".appendedThings").on("click", function () {
+            event.preventDefault();
+            $(this).remove();
+        });
       });
     });
   });
