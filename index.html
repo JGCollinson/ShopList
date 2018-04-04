@@ -1,144 +1,97 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/javascript/shoplist.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDnVN6WBnhQGvNE4UfQIMJ7n6KvEd1aO0&libraries=places" defer></script>
-        <title>shop, List</title>
-        
-    </head>
-    
-    <body>
+    <title>shop, List</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
     <div class="container">
         <div class="row" id="header">
             <div class="col-6 col-md-4">
-                <img src="https://storage.googleapis.com/coding-bc-projects/ShopList/pen.jpg" alt="pen">
+                <img class="logo" src="https://storage.googleapis.com/coding-bc-projects/ShopList/pen.jpg" alt="pen">
             </div>
             <div class="col-6 col-md-4">
-                <h2 style="text-align:center;">
-                    <span>S</span>hoping
-                    <span>L</span>ist</h2>
+                <h2 style="text-align:center;"><span>S</span>hopping<span>L</span>ist</h2>
             </div>
-            <div class="col-6 col-md-4">
-
+            <div class="col-6 col-md-4">       
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-8">
-                <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</button>
-                        <div class="dropdown-menu" id="dropdown_menu">
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Baking">Baking</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Beverages">Beverages</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Breakfast & Cereal">Breakfast & Cereal</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Chocolate, Candy & Gum">Chocolate, Candy & Gum</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Coffee">Coffee</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Condiments, Sauces & Spices">Condiments, Sauces & Spices</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Fresh Flowers">Fresh Flowers</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Fresh Food">Fresh Food</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Frozen Foods">Frozen Foods</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Gift Baskets">Gift Baskets</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Gluten-Free Foods">Gluten-Free Foods</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="International Foods">International Foods</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Kosher Foods">Kosher Foods</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Meal Kits & Specialty Food Boxes">Meal Kits & Specialty Food Boxes</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Meal Solutions, Grains & Pasta">Meal Solutions, Grains & Pasta</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Organic Foods">Organic Foods</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Snacks, Cookies & Chips">Snacks, Cookies & Chips</h5>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <h5 class="category" value="Soups">Soups</h5>
-                            </a>
-
-                            <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="addNumber" placeholder="Item">
+                </div>
+                <div class="col">
+                    <input type="text" id="addNumber" placeholder="Quantity">
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dopdownBtn">Category</button>
+                            <div class="dropdown-menu dropdown" id="dropdown_menu">
+                            <a class="dropdown-item upc" href="#" value="1334134">Arts, Crafts & Sewing</a>
+                            <a class="dropdown-item upc" href="#" value="5427" >Baby</a>
+                            <a class="dropdown-item upc" href="#" value="1085666" >Beauty</a>
+                            <a class="dropdown-item upc" href="#" value="3944 " >Electronics</a>
+                            <a class="dropdown-item upc" href="#" value="976759" >Food</a>
+                            <a class="dropdown-item upc" href="#" value="1072864" >Health</a>
+                            <a class="dropdown-item upc" href="#" value="1072864" >Home Improvement</a>
+                            <a class="dropdown-item upc" href="#" value="1115193" >Household Essentials</a>
+                            <a class="dropdown-item upc" href="#" value="1229749" >Office</a>
+                            <a class="dropdown-item upc" href="#" value="2637" >Party & Occasions</a>
+                            <a class="dropdown-item upc" href="#" value="1005862" >Personal Care</a>
+                            <a class="dropdown-item upc" href="#" value="5440" >Pets</a>
+                            <a class="dropdown-item upc" href="#" value="4125" >Sports & Outdoors</a>
+                            <a class="dropdown-item upc" href="#" value="4171" >Toys</a>
+                            </div>
+                        </div>                    
                     </div>
                 </div>
-
-            </div>
-            <div class="col-4">
-                <input type="text" id="addNumber" placeholder="Quantites">
-                <button id="addButtons">add</button>
-            </div>
-        </div>
-        <div class="row" id="contents">
-            <div class="col-8 listContents">
-                <div class="row listHead">
-                    <div class="col itemNamesHead">Item Names</div>
-                    <div class="col itemQty">Qty</div>
-                    <div class="col itemCategory">Category</div>
+                <div class="col">
+                    <button id="addButtons">add</button>
                 </div>
-                <div class=" row userList"></div>
             </div>
-            <div class="col-4 plotlyContents">
+            <div>
+                <table class="table table-light">
+                    <thead>
+                        <tr>
+                        <th scope="col">Items Names</th>
+                        <th scope="col">Quantites</th>
+                        <th scope="col">Categoy</th>
+                        <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>        
+            </div>
+            <div class="row plotly" >
                 <div id="tester"></div>
             </div>
+        <div id="map" style="width:100%;height:400px;"></div>
 
-
-        </div>
-        <div class="row">
-            <div id="map" style="width:100%;height:400px;"></div>
-            <div id="data"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8">
-            </div>
-        </div>
-        <div class="row" id="footer">
-            <h5 class="footer">Shop Smart</h5>
-        </div>
+        <div class="row" id="footer"> <h5 class="footer">Shop Smart</h5></div>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="assets/javascript/shoplist.js"></script>
 </body>
 
 </html>
