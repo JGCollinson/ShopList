@@ -8,7 +8,6 @@ function productInfo() {
       itemVal +
       "&apiKey=x5k7prwzkqgurwt4n33rt74g";
     $.ajax({
-
       url: queryURL,
       method: "GET"
     }).done(function(response) {
@@ -20,7 +19,7 @@ function productInfo() {
     });
   }
   productInfo();
-  
+
   function latLongLookup(zip) {
     var queryURL =
       "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/ycSGL95P7qvqRje1BBye5ASSV4LaYIrbGOJzDF1yP6Me5yQmG9YGPneweDWslVM5/info.json/" +
@@ -41,17 +40,17 @@ function productInfo() {
   }
   var map;
   var infowindow;
-  
+
   function initMap(lat, long) {
     var pyrmont = { lat: lat, lng: long };
-  
+
     map = new google.maps.Map(document.getElementById("map"), {
       center: pyrmont,
       zoom: 14
     });
-  
+
     console.log(`Pyrmont is ${JSON.stringify(pyrmont)}`);
-  
+
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch(
@@ -86,13 +85,13 @@ function productInfo() {
     var zip = parseInt($("#zipInput").val());
     latLongLookup(zip);
   });
-  
+
   var myList = [];
   var itemList = [];
   var categories = [];
   $(document).ready(function() {
+    
     //---------------PLOTLY-----------------------
-
     var data = [
       {
         values: [19, 26, 55],
@@ -100,7 +99,7 @@ function productInfo() {
         type: "pie"
       }
     ];
-  
+
     Plotly.newPlot("tester", data);
     //--------------------------------------------
     var zip = parseInt(prompt("What's your zip code?"));
@@ -108,24 +107,29 @@ function productInfo() {
     $(document).on("click", "a.dropdown-item.upc", function() {
       category = $(this).text();
       $("#addButtons").on("click", function() {
-
         event.preventDefault();
+        
         var qty = $("#addNumber")
           .val()
           .trim();
         var productName = $("#addProduct")
           .val()
           .trim();
-        console.log("This is the quantity:" + qty);
-        console.log("This is the Category:" + category);
-        console.log("This is the Product name:" + productName);
+        console.log(qty);
+        console.log(category);
+        console.log(productName);
+        var things = (productName + " " + qty + " " + category);
+        console.log("things are:" + things);
+        $("#addProduct").val("");
+        $("#addNumber").val("");
+        $("#listTable > tbody").append("<tr><td>" + productName + "</td><td>" + qty + "</td><td>" +
+        category + "</td><td>" + qty+ "</td></tr>");
+        $(".appendedThings").on("click", function () {
+            event.preventDefault();
+            $(this).remove();
+          
+        });
       });
     });
-    
-      
-    
-    $("#listTable").append("<tr><td>" + productName+ "</td><td>" + qty+ "</td><td>" +
-  productName + "</td><td>" + qty+"</td></tr>");
-    });
-  
-  
+  });
+
