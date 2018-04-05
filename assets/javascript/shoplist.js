@@ -40,17 +40,13 @@ function productInfo() {
   }
   var map;
   var infowindow;
-  
   function initMap(lat, long) {
     var pyrmont = { lat: lat, lng: long };
-  
     map = new google.maps.Map(document.getElementById("map"), {
       center: pyrmont,
       zoom: 14
     });
-  
     console.log(`Pyrmont is ${JSON.stringify(pyrmont)}`);
-  
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch(
