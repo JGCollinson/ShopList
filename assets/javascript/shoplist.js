@@ -116,7 +116,7 @@ $(document).ready(function() {
         .val()
         .trim();
       var stuffThing = $("<div class='appendedThings'>");
-      console.log("category before append" + category)
+      console.log("category before append" + category);
       $("#listTable> tbody").append(
         "<tr><td>" +
           productName +
@@ -128,7 +128,7 @@ $(document).ready(function() {
           qty +
           "</td></tr>"
       );
-      $(".appendedThings").on("click", function() {
+      $("tr").on("click", function() {
         event.preventDefault();
         $(this).remove();
       });
