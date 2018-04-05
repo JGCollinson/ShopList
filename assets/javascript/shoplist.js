@@ -1,3 +1,34 @@
+
+ //---------------reduce(adding array values)-----------------------
+
+ // var arr = [1,2,3,4];
+ // var sum = arr.reduce((acc, val) => acc + val, 0);
+ // var data = [
+   //   {
+     //     country: 'China',
+     //     pop: 1409517397,
+     //   },
+     //   {
+       //     country: 'India',
+       //     pop: 1339180127,
+       //   },
+       //   {
+         //     country: 'USA',
+         //     pop: 324459463,
+         //   },
+         //   {
+           //     country: 'Indonesia',
+           //     pop: 263991379,
+           //   }
+           // ]
+           // var sum = data.reduce((acc, val) => {
+             //   return val.country == 'China' ? acc : acc + val.pop;
+             // }, 0);
+             // let sum = data
+             //   .filter(val => val.country !== 'China')
+             //   .reduce((acc, val) => acc + val.pop, 0);
+//--------------------------------------------
+             
 function productInfo() {
     var itemName = "tomato";
     var itemVal = "976759";
