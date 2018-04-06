@@ -165,7 +165,6 @@ $(document).ready(function() {
           console.log(results[0].thumbnailImage);
           console.log(results[0].productUrl);
           console.log(results[0].offerType);
-          console.log(results[0].name);
           var trueItemName = (results[0].name);
           var  unitPriceTotal= PriceArray.reduce((acc, val) => acc + val, 0);
           console.log(unitPriceTotal)
