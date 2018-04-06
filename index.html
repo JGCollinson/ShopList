@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>shop, List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -14,106 +15,124 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDnVN6WBnhQGvNE4UfQIMJ7n6KvEd1aO0&libraries=places" defer></script>
-    <script src="assets/javascript/shoplist.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/shoplist.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDnVN6WBnhQGvNE4UfQIMJ7n6KvEd1aO0&libraries=places" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="assets/images/site.webmanifest">
-    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#000000">
-    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff">
+    <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
     <div class="container">
         <div class="row" id="header">
-            <div class="col-6 col-md-4">
-                <img class="logo" src="https://storage.googleapis.com/coding-bc-projects/ShopList/pen.jpg" alt="pen">
-            </div>
-            <div class="col-6 col-md-4">
-                <h2 style="text-align:center;">
-                    <span>S</span>hopping
-                    <span>L</span>ist</h2>
-            </div>
-            <div class="col-6 col-md-4">
-            </div>
+        <div class="col-6 col-md-4">
+            <img class="logo" src="assets/images/sllogo.jpg" alt="pen">
         </div>
-        <br>
-        <div class="row">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <input type="text" id="addProduct" placeholder="Item">
-                    </div>
-                    <div class="col">
-                        <input type="text" id="addNumber" placeholder="Quantity">
-                    </div>
-                    <div class="col">
-                        <div class="input-group">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    id="dopdownBtn">Category</button>
-                                <div class="dropdown-menu dropdown" id="dropdown_menu">
-                                    <a class="dropdown-item upc" href="#" value="1334134">Arts, Crafts & Sewing</a>
-                                    <a class="dropdown-item upc" href="#" value="5427">Baby</a>
-                                    <a class="dropdown-item upc" href="#" value="1085666">Beauty</a>
-                                    <a class="dropdown-item upc" href="#" value="3944 ">Electronics</a>
-                                    <a class="dropdown-item upc" href="#" value="976759">Food</a>
-                                    <a class="dropdown-item upc" href="#" value="1072864">Health</a>
-                                    <a class="dropdown-item upc" href="#" value="1072864">Home Improvement</a>
-                                    <a class="dropdown-item upc" href="#" value="1115193">Household Essentials</a>
-                                    <a class="dropdown-item upc" href="#" value="1229749">Office</a>
-                                    <a class="dropdown-item upc" href="#" value="2637">Party & Occasions</a>
-                                    <a class="dropdown-item upc" href="#" value="1005862">Personal Care</a>
-                                    <a class="dropdown-item upc" href="#" value="5440">Pets</a>
-                                    <a class="dropdown-item upc" href="#" value="4125">Sports & Outdoors</a>
-                                    <a class="dropdown-item upc" href="#" value="4171">Toys</a>
+        <div class="col-6 col-md-4">
+            <h2 style="text-align:center;">
+            <span>S</span>hopping
+            <span>L</span>ist</h2>
+        </div>
+        <div class="col-6 col-md-4">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="container">
+            <div class="content">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="addProduct" placeholder="Item">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="addNumber" placeholder="Quantity">
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        id="dopdownBtn">Category</button>
+                                    <div class="dropdown-menu dropdown" id="dropdown_menu">
+                                        <a class="dropdown-item upc" href="#" value="1334134">Arts, Crafts & Sewing</a>
+                                        <a class="dropdown-item upc" href="#" value="5427">Baby</a>
+                                        <a class="dropdown-item upc" href="#" value="1085666">Beauty</a>
+                                        <a class="dropdown-item upc" href="#" value="3944 ">Electronics</a>
+                                        <a class="dropdown-item upc" href="#" value="976759">Food</a>
+                                        <a class="dropdown-item upc" href="#" value="1072864">Health</a>
+                                        <a class="dropdown-item upc" href="#" value="1072864">Home Improvement</a>
+                                        <a class="dropdown-item upc" href="#" value="1115193">Household Essentials</a>
+                                        <a class="dropdown-item upc" href="#" value="1229749">Office</a>
+                                        <a class="dropdown-item upc" href="#" value="2637">Party & Occasions</a>
+                                        <a class="dropdown-item upc" href="#" value="1005862">Personal Care</a>
+                                        <a class="dropdown-item upc" href="#" value="5440">Pets</a>
+                                        <a class="dropdown-item upc" href="#" value="4125">Sports & Outdoors</a>
+                                        <a class="dropdown-item upc" href="#" value="4171">Toys</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col">
+                            <button id="addButtons">add</button>
+                        </div>
+                        </div>
+                        <div>
+                            <table class="table table-light" id="listTable">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Items Names</th>
+                                        <th scope="col">Quantites</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Unit Price</th>
+                                        <th scope="col">Qty Price <span class="qty">( Rounded) </span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Total</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th id="unitPriceTotal"></th>
+                                            <th id="qtyPriceTotal"></th>
+                                        </tr>
+                                    </tfoot>
+                            </table>
+                        </div>
+                        <div class="row plotly">
+                            <div id="graphDiv"></div>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Search Local Stores
+                                </button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Local Stores</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        Type Your Zip Here
+                                        </div>
+                                        <div class="modal-footer zipInput" >
+                                        <button type="button" class="btn btn-secondary " id="addZip" data-dismiss="modal">Search</button>
+                                        <input type="text"  placeholder="Zip"  id="zipInput">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            <div id="map" style="width:100%;height:400px;"></div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <button id="addButtons">add</button>
-                    </div>
-                </div>
-                <div>
-                    <table class="table table-light">
-                        <thead>
-                            <tr>
-                                <th scope="col">Items Names</th>
-                                <th scope="col">Quantites</th>
-                                <th scope="col">Categoy</th>
-                                <th scope="col">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row plotly">
-                    <div id="tester"></div>
-                </div>
-                <div class="modal fade" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              <h4 class="modal-title">Modal title</h4>
-                            </div>
-                            <div class="modal-body">
-                              <p>One fine body&hellip;</p>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                      </div><!-- /.modal -->
-                <div class="row">
-                    <div id="map" style="width:100%;height:400px;"></div>
-                </div>
                 <div class="row" id="footer">
                     <h5 class="footer">Shop Smart</h5>
                 </div>
