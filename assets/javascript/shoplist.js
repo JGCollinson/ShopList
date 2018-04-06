@@ -1,3 +1,7 @@
+
+
+$(document).ready(function() {
+
 function productInfo() {
   var itemName = "tomato";
   var itemVal = "976759";
@@ -85,7 +89,7 @@ function createMarker(place) {
 var myList = [];
 var itemList = [];
 var categories = [];
-$(document).ready(function() {
+
   //---------------PLOTLY-----------------------
   var data = [
     {

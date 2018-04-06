@@ -46,96 +46,96 @@
         <div class="row">
             <div class="container">
                 <div class="content">
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" id="addProduct" placeholder="Item">
-                            </div>
-                            <div class="col">
-                                <input type="text" id="addNumber" placeholder="Quantity">
-                            </div>
-                            <div class="col">
-                                <div class="input-group">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                            id="dopdownBtn">Category</button>
-                                        <div class="dropdown-menu dropdown" id="dropdown_menu">
-                                            <a class="dropdown-item upc" href="#" value="1334134">Arts, Crafts & Sewing</a>
-                                            <a class="dropdown-item upc" href="#" value="5427">Baby</a>
-                                            <a class="dropdown-item upc" href="#" value="1085666">Beauty</a>
-                                            <a class="dropdown-item upc" href="#" value="3944 ">Electronics</a>
-                                            <a class="dropdown-item upc" href="#" value="976759">Food</a>
-                                            <a class="dropdown-item upc" href="#" value="1072864">Health</a>
-                                            <a class="dropdown-item upc" href="#" value="1072864">Home Improvement</a>
-                                            <a class="dropdown-item upc" href="#" value="1115193">Household Essentials</a>
-                                            <a class="dropdown-item upc" href="#" value="1229749">Office</a>
-                                            <a class="dropdown-item upc" href="#" value="2637">Party & Occasions</a>
-                                            <a class="dropdown-item upc" href="#" value="1005862">Personal Care</a>
-                                            <a class="dropdown-item upc" href="#" value="5440">Pets</a>
-                                            <a class="dropdown-item upc" href="#" value="4125">Sports & Outdoors</a>
-                                            <a class="dropdown-item upc" href="#" value="4171">Toys</a>
-                                        </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="addProduct" placeholder="Item">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="addNumber" placeholder="Quantity">
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        id="dopdownBtn">Category</button>
+                                    <div class="dropdown-menu dropdown" id="dropdown_menu">
+                                        <a class="dropdown-item upc" href="#" value="1334134">Arts, Crafts & Sewing</a>
+                                        <a class="dropdown-item upc" href="#" value="5427">Baby</a>
+                                        <a class="dropdown-item upc" href="#" value="1085666">Beauty</a>
+                                        <a class="dropdown-item upc" href="#" value="3944 ">Electronics</a>
+                                        <a class="dropdown-item upc" href="#" value="976759">Food</a>
+                                        <a class="dropdown-item upc" href="#" value="1072864">Health</a>
+                                        <a class="dropdown-item upc" href="#" value="1072864">Home Improvement</a>
+                                        <a class="dropdown-item upc" href="#" value="1115193">Household Essentials</a>
+                                        <a class="dropdown-item upc" href="#" value="1229749">Office</a>
+                                        <a class="dropdown-item upc" href="#" value="2637">Party & Occasions</a>
+                                        <a class="dropdown-item upc" href="#" value="1005862">Personal Care</a>
+                                        <a class="dropdown-item upc" href="#" value="5440">Pets</a>
+                                        <a class="dropdown-item upc" href="#" value="4125">Sports & Outdoors</a>
+                                        <a class="dropdown-item upc" href="#" value="4171">Toys</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <button id="addButtons">add</button>
-                            </div>
+                        </div>
+                        <div class="col">
+                            <button id="addButtons">add</button>
+                        </div>
                         </div>
                         <div>
-                            <table class="table table-light" id="listTable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Items Names</th>
-                                        <th scope="col">Quantites</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Subtotal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Total</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                    </tfoot>
-                            </table>
-                        </div>
-                        <div class="row plotly">
-                            <div id="tester"></div>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    Search Local Stores
-                                </button>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Local Stores</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                        <div class="modal-body">
-                                        Type Your Zip Here
-                                        </div>
-                                        <div class="modal-footer zipInput" >
-                                        <button type="button" class="btn btn-secondary " id="addZip" data-dismiss="modal">Search</button>
-                                        <input type="text"  placeholder="Zip"  id="zipInput">
-                                        </div>
+                        <table class="table table-light" id="listTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Items Names</th>
+                                    <th scope="col">Quantites</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th id="total"></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="row plotly">
+                        <div id="tester"></div>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Search Local Stores
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Local Stores</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                     </div>
+                                    <div class="modal-body">
+                                    Type Your Zip Here
+                                    </div>
+                                    <div class="modal-footer zipInput" >
+                                    <button type="button" class="btn btn-secondary " id="addZip" data-dismiss="modal">Search</button>
+                                    <input type="text"  placeholder="Zip"  id="zipInput">
                                     </div>
                                 </div>
-                            <div id="map" style="width:100%;height:400px;"></div>
+                            </div>
                         </div>
-                    </div>
-                <div class="row" id="footer">
-                    <h5 class="footer">Shop Smart</h5>
+                    <div id="map" style="width:100%;height:400px;"></div>
                 </div>
             </div>
+        <div class="row" id="footer">
+            <h5 class="footer">Shop Smart</h5>
+        </div>
+    </div>
 </body>
 
 </html>
