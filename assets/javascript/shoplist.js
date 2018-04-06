@@ -157,13 +157,15 @@ $(document).ready(function() {
         }).done(function(response) {
             var results = response.items;
           var salePrice = results[0].salePrice;
-          PriceArray.push(salePrice)
+          PriceArray.push(salePrice);
           var totalSalePrice = Math.round ((salePrice * qty) * 10)/10;
           totalArray.push(totalSalePrice);
-          console.log(totalArray)
+          console.log(totalArray);
           console.log(results[0].thumbnailImage);
           console.log(results[0].productUrl);
           console.log(results[0].offerType);
+          console.log(results[0].name);
+          var trueItemName = (results[0].name);
           var  unitPriceTotal= PriceArray.reduce((acc, val) => acc + val, 0);
           console.log(unitPriceTotal)
           var qtypriceTotal = totalArray.reduce((acc, val) => acc + val, 0);
@@ -171,7 +173,7 @@ $(document).ready(function() {
           $("#unitPriceTotal").html(unitPriceTotal);
           $("#qtyPriceTotal").html(roundqtypriceTotal);
           console.log(qtypriceTotal)
-          appendProductList(productName, qty, category, totalSalePrice, salePrice);
+          appendProductList(trueItemName, qty, category, totalSalePrice, salePrice);
           event.preventDefault();
         });
       }
