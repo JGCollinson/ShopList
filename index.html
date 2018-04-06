@@ -30,56 +30,55 @@
 <body>
     <div class="container">
         <div class="row" id="header">
-            <div class="col-6 col-md-4">
-                <img class="logo" src="assets/images/sllogo.jpg" alt="pen">
-            </div>
-            <div class="col-6 col-md-4">
-
-                <h2 style="text-align:center;">
-                    <span>S</span>hopping
-                    <span>L</span>ist</h2>
-            </div>
-            <div class="col-6 col-md-4">
-            </div>
+        <div class="col-6 col-md-4">
+            <img class="logo" src="assets/images/sllogo.jpg" alt="pen">
         </div>
-        <br>
-        <div class="row">
-            <div class="container">
-                <div class="content">
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" id="addProduct" placeholder="Item">
-                            </div>
-                            <div class="col">
-                                <input type="text" id="addNumber" placeholder="Quantity">
-                            </div>
-                            <div class="col">
-                                <div class="input-group">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                            id="dopdownBtn">Category</button>
-                                        <div class="dropdown-menu dropdown" id="dropdown_menu">
-                                            <a class="dropdown-item upc" href="#" value="1334134">Arts, Crafts & Sewing</a>
-                                            <a class="dropdown-item upc" href="#" value="5427">Baby</a>
-                                            <a class="dropdown-item upc" href="#" value="1085666">Beauty</a>
-                                            <a class="dropdown-item upc" href="#" value="3944 ">Electronics</a>
-                                            <a class="dropdown-item upc" href="#" value="976759">Food</a>
-                                            <a class="dropdown-item upc" href="#" value="1072864">Health</a>
-                                            <a class="dropdown-item upc" href="#" value="1072864">Home Improvement</a>
-                                            <a class="dropdown-item upc" href="#" value="1115193">Household Essentials</a>
-                                            <a class="dropdown-item upc" href="#" value="1229749">Office</a>
-                                            <a class="dropdown-item upc" href="#" value="2637">Party & Occasions</a>
-                                            <a class="dropdown-item upc" href="#" value="1005862">Personal Care</a>
-                                            <a class="dropdown-item upc" href="#" value="5440">Pets</a>
-                                            <a class="dropdown-item upc" href="#" value="4125">Sports & Outdoors</a>
-                                            <a class="dropdown-item upc" href="#" value="4171">Toys</a>
-                                        </div>
+        <div class="col-6 col-md-4">
+            <h2 style="text-align:center;">
+            <span>S</span>hopping
+            <span>L</span>ist</h2>
+        </div>
+        <div class="col-6 col-md-4">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="container">
+            <div class="content">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="addProduct" placeholder="Item">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="addNumber" placeholder="Quantity">
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        id="dopdownBtn">Category</button>
+                                    <div class="dropdown-menu dropdown" id="dropdown_menu">
+                                        <a class="dropdown-item upc" href="#" value="1334134">Arts, Crafts & Sewing</a>
+                                        <a class="dropdown-item upc" href="#" value="5427">Baby</a>
+                                        <a class="dropdown-item upc" href="#" value="1085666">Beauty</a>
+                                        <a class="dropdown-item upc" href="#" value="3944 ">Electronics</a>
+                                        <a class="dropdown-item upc" href="#" value="976759">Food</a>
+                                        <a class="dropdown-item upc" href="#" value="1072864">Health</a>
+                                        <a class="dropdown-item upc" href="#" value="1072864">Home Improvement</a>
+                                        <a class="dropdown-item upc" href="#" value="1115193">Household Essentials</a>
+                                        <a class="dropdown-item upc" href="#" value="1229749">Office</a>
+                                        <a class="dropdown-item upc" href="#" value="2637">Party & Occasions</a>
+                                        <a class="dropdown-item upc" href="#" value="1005862">Personal Care</a>
+                                        <a class="dropdown-item upc" href="#" value="5440">Pets</a>
+                                        <a class="dropdown-item upc" href="#" value="4125">Sports & Outdoors</a>
+                                        <a class="dropdown-item upc" href="#" value="4171">Toys</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <button id="addButtons">add</button>
-                            </div>
+                        </div>
+                        <div class="col">
+                            <button id="addButtons">add</button>
+                        </div>
                         </div>
                         <div>
                             <table class="table table-light" id="listTable">
@@ -88,7 +87,8 @@
                                         <th scope="col">Items Names</th>
                                         <th scope="col">Quantites</th>
                                         <th scope="col">Category</th>
-                                        <th scope="col">Subtotal</th>
+                                        <th scope="col">Unit Price</th>
+                                        <th scope="col">Qty Price <span class="qty">( Rounded) </span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -98,7 +98,8 @@
                                             <th>Total</th>
                                             <th></th>
                                             <th></th>
-                                            <th></th>
+                                            <th id="unitPriceTotal"></th>
+                                            <th id="qtyPriceTotal"></th>
                                         </tr>
                                     </tfoot>
                             </table>

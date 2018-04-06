@@ -82,7 +82,6 @@ function createMarker(place) {
   });
 }
 
-var myList = [];
 var itemList = [];
 var categories = [];
 $(document).ready(function() {
@@ -105,7 +104,7 @@ $(document).ready(function() {
   $(document).on("click", "a.dropdown-item.upc", function() {
     category = $(this).text();
   });
-  function appendProductList(x,y,z,b){
+  function appendProductList(x,y,z,b,u){
     $("#listTable> tbody").append(
       "<tr><td>" +
         // productName
@@ -118,6 +117,10 @@ $(document).ready(function() {
         z +
         "</td><td>" +
         // salePrice
+        u+
+        "</td></td>"+
+        "</td><td>" +
+        // salePrice
         b +
         "</td></tr>"
     );
@@ -126,7 +129,12 @@ $(document).ready(function() {
       category = $(this).text();
       categoryVal = $(this).attr("value");
     });
+    var PriceArray = [];
+    var totalArray = [];
+   
+    productInfo();
     $("#addButtons").on("click", function() {
+      
       var qty = $("#addNumber")
         .val()
         .trim();
@@ -149,11 +157,21 @@ $(document).ready(function() {
         }).done(function(response) {
             var results = response.items;
           var salePrice = results[0].salePrice;
-          var totalSalePrice = (salePrice * qty);
+          PriceArray.push(salePrice)
+          var totalSalePrice = Math.round ((salePrice * qty) * 10)/10;
+          totalArray.push(totalSalePrice);
+          console.log(totalArray)
           console.log(results[0].thumbnailImage);
           console.log(results[0].productUrl);
           console.log(results[0].offerType);
-          appendProductList(productName, qty, category, totalSalePrice);
+          var  unitPriceTotal= PriceArray.reduce((acc, val) => acc + val, 0);
+          console.log(unitPriceTotal)
+          var qtypriceTotal = totalArray.reduce((acc, val) => acc + val, 0);
+          var roundqtypriceTotal = Math.round ((qtypriceTotal) * 10)/10;
+          $("#unitPriceTotal").html(unitPriceTotal);
+          $("#qtyPriceTotal").html(roundqtypriceTotal);
+          console.log(qtypriceTotal)
+          appendProductList(productName, qty, category, totalSalePrice, salePrice);
           event.preventDefault();
         });
       }
@@ -163,3 +181,33 @@ $(document).ready(function() {
             event.preventDefault();
             $(this).remove();
           });
+
+
+          // var arr = [1,2,3,4,6];
+//  var sum = arr.reduce((acc, val) => acc + val, 0);
+// console.log("Sun is :" + sum);
+
+//  var data = [
+//      {
+//          country: 'China',
+//          pop: 1409517397,
+//        },
+//        {
+//            country: 'India',
+//            pop: 1339180127,
+//          },
+//          {
+//              country: 'USA',
+//              pop: 324459463,
+//            },
+//            {
+//                country: 'Indonesia',
+//                pop: 263991379,
+//              }
+//            ]
+          //  var sum = data.reduce((acc, val) => {
+          //      return val.country == 'China' ? acc : acc + val.pop;
+          //    }, 0);
+          //    let sum = data
+          //      .filter(val => val.country !== 'China')
+          //      .reduce((acc, val) => acc + val.pop, 0);
