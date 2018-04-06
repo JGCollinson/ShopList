@@ -26,20 +26,31 @@ h2{
 img{
     border-radius: 20px;
 }
+thead{
+    background-color: gray;
+   
+}
+tfoot{
+    background-color: gray;
+}
+.content{
+    padding: 0px 30px
+}
 #addButtons{
-    float: right;
+    height: 40px;
+    margin-left: 20px;
     border-radius: 10px;
-    width: 50px;
+    width: 60px;
     background-color: blue;
     color: white;
-    
 }
+
 input{
     width: 135px;
     border-radius: 10px;
     border: 3px solid blue;
     padding-left: 10px;
-    float: left;
+    margin-left: 10px;
 }
 #heading{
     margin: 10px;
@@ -55,21 +66,18 @@ input{
     background-color: blue;
     color: white;
 }
-
-.plotlyContents{
-    background-color: gray;
-    height: 100%;
+#listTable{
+    margin: 10px;
+    border: 3px double #EF820D;
+}
+.zipInput{
     position: relative;
-    right: 10px;
-    border-top: 5px solid gray;
-    border-bottom: 5px solid gray;
+    right: 90px;
+}
 
-}
-#commercialBoad{
-    height: 100px;
-}
 #footer{
-
+position: relative;
+top: 50px;
     background-color: #EF820D;
     border-top: 5px solid blue;
     padding: 10px;
@@ -80,44 +88,11 @@ input{
     position: relative;
     left: 330px;
 }
-.listErea{
- margin-left: 10px;
-}
 
-.items:hover{
-    background-color: yellow;
-}
-.coupons{
-    margin-top: 20px;
-}
-
-#redArrow{
-    margin-right: 5px;
-    margin-top: 5px;
-}
-
-.button{
-    position: relative;
-    left: 30px;
-}
-#greenArrow:hover{
-    background-color: yellow;
-}
-
-.listContents{
-    padding-left: 40px;
-}
-.listHead{
-    text-align: center;
-    font-family: bold;
-    font-size: 18px;
-}
-.itemNamesHead{margin-left: 50px;}
-.itemQty{margin-left: 10px;}
-.itemCategory{margin-right: 50px;}
 h6{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
