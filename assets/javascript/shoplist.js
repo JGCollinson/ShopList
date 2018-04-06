@@ -102,35 +102,63 @@ $(document).ready(function() {
     console.log("Zip is:" + zip)
      latLongLookup(zip);
   });
-var zip = 30324;
-  latLongLookup(zip);
   $(document).on("click", "a.dropdown-item.upc", function() {
     category = $(this).text();
   });
+  function appendProductList(x,y,z,b){
+    $("#listTable> tbody").append(
+      "<tr><td>" +
+        // productName
+        x +
+        "</td><td>" +
+        // qty
+        y +
+        "</td><td>" +
+        // category
+        z +
+        "</td><td>" +
+        // salePrice
+        b +
+        "</td></tr>"
+    );
+  }
+    $(document).on("click", "a.dropdown-item.upc", function() {
+      category = $(this).text();
+      categoryVal = $(this).attr("value");
+    });
     $("#addButtons").on("click", function() {
-      event.preventDefault();
       var qty = $("#addNumber")
         .val()
         .trim();
       var productName = $("#addProduct")
         .val()
         .trim();
-      var stuffThing = $("<div class='appendedThings'>");
-      console.log("category before append" + category);
-      $("#listTable> tbody").append(
-        "<tr><td>" +
-          productName +
-          "</td><td>" +
-          qty +
-          "</td><td>" +
-          category +
-          "</td><td>" +
-          qty +
-          "</td></tr>"
-      );
-      $("tr").on("click", function() {
-        event.preventDefault();
-        $(this).remove();
-      });
+        productInfo(productName, categoryVal);
+      function productInfo(y, x) {
+        var itemName = y;
+        var itemVal = x;
+        var queryURL =
+        "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/search?query=" +
+        itemName +
+        "&format=json&categoryId=" +
+        itemVal +
+        "&apiKey=x5k7prwzkqgurwt4n33rt74g";
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).done(function(response) {
+            var results = response.items;
+          var salePrice = results[0].salePrice;
+          console.log(results[0].thumbnailImage);
+          console.log(results[0].productUrl);
+          console.log(results[0].offerType);
+          appendProductList(productName, qty, category, salePrice);
+          event.preventDefault();
+        });
+      }
     });
-});
+  });
+  $(document).on("click", "tr", function() {
+            event.preventDefault();
+            $(this).remove();
+          });
