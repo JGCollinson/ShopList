@@ -81,10 +81,6 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
-$(document).on("click", ".zipButton", function() {
-  var zip = parseInt($("#zipInput").val());
-  latLongLookup(zip);
-});
 
 var myList = [];
 var itemList = [];
@@ -101,8 +97,12 @@ $(document).ready(function() {
 
   Plotly.newPlot("tester", data);
   //--------------------------------------------
-  // var zip = parseInt(prompt("What's your zip code?"));
-  var zip = "37916";
+  $(document).on("click", "#addZip", function() {
+    var zip = $("#zipInput").val().trim();
+    console.log("Zip is:" + zip)
+     latLongLookup(zip);
+  });
+var zip = 30324;
   latLongLookup(zip);
   $(document).on("click", "a.dropdown-item.upc", function() {
     category = $(this).text();
@@ -134,65 +134,3 @@ $(document).ready(function() {
       });
     });
 });
-//     $("#addButtons").on("click", function(){
-//         event.preventDefault();
-//         var inputVal = $("#addNumber").val().trim();
-//         var itemVal = $(".addItems").val().trim();
-//         myList.push(inputVal);
-//         itemList.push(itemVal);
-
-//         console.log(myList);
-//         $(".userList").empty()
-//         $(".addItems").empty()
-//         for(var i=0; i<myList.length; i++){
-//             $("#addNumber").val("");
-//             for (var x=0; x <itemList.length; x++){
-//                 $(".addItems").val();
-//             }
-//             $(".userList").append(`
-//                <div class="row">
-//                 <img class="avaibility" id="redArrow" src="https://storage.googleapis.com/coding-bc-projects/ShopList/redArrow.jpg" alt="redArrow">
-//                 <h6 class="itemNames">${itemList[i]}</h6>
-//                 <button class= "numbers">${myList[i]}</button>
-//                 <h6 class="listCategory"></h6>
-
-//                </div>
-//            `);
-
-//             $(".numbers").css({
-//             "border": "3px solid yellow",
-//             "background-color": "blue",
-//             "color": "white",
-//             "width": "50px",
-//             "text-align": "center",
-//             "height": "40px",
-//             "margin-top": "5px"
-//             });
-
-//             $(".itemNames").css({
-//             "border": "3px solid yellow",
-//             "background-color": "blue",
-//             "color": "white",
-//             "width": "180px",
-//             "text-align": "center",
-//             "height": "40px",
-//             "margin-top": "5px",
-//             "margin-right": "10px"
-//             });
-
-//             $(".listCategory").css({
-//             "border": "3px solid yellow",
-//             "background-color": "blue",
-//             "color": "white",
-//             "width": "180px",
-//             "text-align": "center",
-//             "height": "40px",
-//             "margin-top": "5px",
-//             "margin-left": "10px"
-
-//             });
-
-//         }
-//     });
-
-// });
