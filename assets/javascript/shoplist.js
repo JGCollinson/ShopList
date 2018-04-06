@@ -138,6 +138,7 @@ $(document).ready(function() {
       var qty = $("#addNumber")
         .val()
         .trim();
+      if (qty <= 0 || qty === "" || qty.match(/[a-zA-Z]/i)) {return}
       var productName = $("#addProduct")
         .val()
         .trim();
