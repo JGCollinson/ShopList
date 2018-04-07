@@ -16,8 +16,9 @@ This includes the name of the item, the number of items, and the category that t
 There will also be a graph for the prices of the items added.
 
 The user also has the option of using Google Maps to find the nearest grocery store.
-# Project Sketches
+# Project Sketches / Links
 * [Project Example](https://imgur.com/a/GWyiq)
+* [Project GitHub Deployed Page](https://jgcollinson.github.io/ShopList/)
 # API's, New tech & Things We Know Already
 This Project uses the following:
 * Wal-Mart API for item prices
