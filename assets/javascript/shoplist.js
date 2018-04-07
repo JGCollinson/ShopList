@@ -79,7 +79,7 @@ $(document).ready(function () {
   var data = [trace1];
 
   var layout = {
-    title: "List Summary"
+    title: "Price & Category Summary"
   };
 
   Plotly.newPlot(graphDiv, data, layout);
@@ -149,17 +149,18 @@ $(document).ready(function () {
         var results = response.items;
         var salePrice = results[0].salePrice;
         PriceArray.push(salePrice);
-        var totalSalePrice = salePrice * qty;
+        var totalSalePrice = (salePrice * qty);
+        var plotlySalePrice = parseFloat(totalSalePrice)
         totalArray.push(totalSalePrice);
+        var qtypriceTotal = totalArray.reduce((acc, val) => acc + val, 0);
+        var roundqtypriceTotal = qtypriceTotal.toFixed(2);
         var pieVals = trace1.values
         var pieLabels = trace1.labels
-        pieVals.push(parseInt(qty));
+        pieVals.push(plotlySalePrice);
         pieLabels.push(category);
-        Plotly.redraw(graphDiv);
-        var qtypriceTotal = totalArray.reduce((acc, val) => acc + val, 0);
-        var roundqtypriceTotal = qtypriceTotal;
         $("#qtyPriceTotal").text("$" + roundqtypriceTotal);
         var trueItemName = (results[0].name);
+        Plotly.redraw(graphDiv);
         appendProductList(trueItemName, qty, category, totalSalePrice, salePrice);
         event.preventDefault();
       });
