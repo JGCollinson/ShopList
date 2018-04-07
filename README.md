@@ -17,7 +17,7 @@ There will also be a graph for the prices of the items added.
 
 The user also has the option of using Google Maps to find the nearest grocery store.
 # Project Sketches
-* [Project Example](https://placeholdersite.com)
+* [Project Example](https://imgur.com/a/GWyiq)
 # API's, New tech & Things We Know Already
 This Project uses the following:
 * Wal-Mart API for item prices
@@ -32,8 +32,9 @@ Garrett is taking on
 
 Taylor is taking on
 * The Front-end aspects such as HTML and CSS
+* Jquery Logic for adding up unit price(s)
 
 Isaac is taking on
-* The majority of the Jquery logic
+* Jquery logic for adding to the DOM
 * User input validation
 * Possible GitHub issues
