@@ -169,10 +169,6 @@ $(document).ready(function () {
     }
   });
 });
-$(document).on("click", "tr", function () {
-  event.preventDefault();
-  $(this).remove();
-});
 $(document).on("click", "#addZip", function () {
   $("#map").css("display","block");
 });
