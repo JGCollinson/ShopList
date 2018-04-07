@@ -1,24 +1,4 @@
-function productInfo() {
-  var itemName = "tomato";
-  var itemVal = "976759";
-  var queryURL =
-    "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/search?query=" +
-    itemName +
-    "&format=json&categoryId=" +
-    itemVal +
-    "&apiKey=x5k7prwzkqgurwt4n33rt74g";
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).done(function(response) {
-    var results = response.items;
-    var salePrice = results[0].salePrice;
-    console.log(results[0].thumbnailImage);
-    console.log(results[0].productUrl);
-    console.log(results[0].offerType);
-  });
-}
-productInfo();
+function productInfo() {}
 
 function latLongLookup(zip) {
   var queryURL =
@@ -28,7 +8,7 @@ function latLongLookup(zip) {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).done(function(response) {
+  }).done(function (response) {
     var latitude = Number(response.lat);
     var longitude = Number(response.lng);
     console.log(latitude, longitude);
@@ -42,7 +22,10 @@ var map;
 var infowindow;
 
 function initMap(lat, long) {
-  var pyrmont = { lat: lat, lng: long };
+  var pyrmont = {
+    lat: lat,
+    lng: long
+  };
 
   map = new google.maps.Map(document.getElementById("map"), {
     center: pyrmont,
@@ -53,8 +36,7 @@ function initMap(lat, long) {
 
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(
-    {
+  service.nearbySearch({
       location: pyrmont,
       radius: 2000,
       keyword: ["grocery"],
@@ -63,6 +45,7 @@ function initMap(lat, long) {
     callback
   );
 }
+
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
@@ -70,13 +53,14 @@ function callback(results, status) {
     }
   }
 }
+
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
-  google.maps.event.addListener(marker, "click", function() {
+  google.maps.event.addListener(marker, "click", function () {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
@@ -84,132 +68,111 @@ function createMarker(place) {
 
 var itemList = [];
 var categories = [];
-$(document).ready(function() {
+$(document).ready(function () {
   //---------------PLOTLY-----------------------
-  var data = [
-    {
-      values: [19, 26, 55],
-      labels: ["Residential", "Non-Residential", "Utility"],
-      type: "pie"
-    }
-  ];
+  var trace1 = {
+    values: [],
+    labels: [],
+    type: "pie"
+  };
 
-  Plotly.newPlot("tester", data);
+  var data = [trace1];
+
+  var layout = {
+    title: "List Summary"
+  };
+
+  Plotly.newPlot(graphDiv, data, layout);
   //--------------------------------------------
-  $(document).on("click", "#addZip", function() {
+  $(document).on("click", "#addZip", function () {
     var zip = $("#zipInput").val().trim();
     console.log("Zip is:" + zip)
-     latLongLookup(zip);
+    latLongLookup(zip);
   });
-  $(document).on("click", "a.dropdown-item.upc", function() {
+  $(document).on("click", "a.dropdown-item.upc", function () {
     category = $(this).text();
   });
-  function appendProductList(x,y,z,b,u){
+
+  function appendProductList(x, y, z, b, u) {
     $("#listTable> tbody").append(
       "<tr><td>" +
-        // productName
-        x +
-        "</td><td>" +
-        // qty
-        y +
-        "</td><td>" +
-        // category
-        z +
-        "</td><td>" +
-        // salePrice
-        u+
-        "</td></td>"+
-        "</td><td>" +
-        // salePrice
-        b +
-        "</td></tr>"
+      // productName
+      x +
+      "</td><td>" +
+      // qty
+      y +
+      "</td><td>" +
+      // category
+      z +
+      "</td><td> $" +
+      // salePrice
+      u +
+      "</td><td> $" +
+      // salePrice
+      b +
+      "</td></tr>"
     );
   }
-    $(document).on("click", "a.dropdown-item.upc", function() {
-      category = $(this).text();
-      categoryVal = $(this).attr("value");
-    });
-    var PriceArray = [];
-    var totalArray = [];
-   
-    productInfo();
-    $("#addButtons").on("click", function() {
-      
-      var qty = $("#addNumber")
-        .val()
-        .trim();
-      if (qty <= 0 || qty === "" || qty.match(/[a-zA-Z]/i)) {return}
-      var productName = $("#addProduct")
-        .val()
-        .trim();
-        productInfo(productName, categoryVal);
-      function productInfo(y, x) {
-        var itemName = y;
-        var itemVal = x;
-        var queryURL =
+  $(document).on("click", "a.dropdown-item.upc", function () {
+    category = $(this).text();
+    categoryVal = $(this).attr("value");
+    $("#dopdownBtn").text(category);
+  });
+  var PriceArray = [];
+  var totalArray = [];
+
+  $("#addButtons").on("click", function () {
+    var qty = $("#addNumber")
+      .val()
+      .trim();
+    if (qty <= 0 || qty === "" || qty.match(/[a-zA-Z]/i)) {
+      return
+    }
+    var productName = $("#addProduct")
+      .val()
+      .trim();
+    productInfo(productName, categoryVal);
+
+    function productInfo(y, x) {
+      var itemName = y;
+      var itemVal = x;
+      var queryURL =
         "https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/search?query=" +
         itemName +
         "&format=json&categoryId=" +
         itemVal +
         "&apiKey=x5k7prwzkqgurwt4n33rt74g";
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).done(function(response) {
-            var results = response.items;
-          var salePrice = results[0].salePrice;
-          PriceArray.push(salePrice);
-          var totalSalePrice = Math.round ((salePrice * qty) * 10)/10;
-          totalArray.push(totalSalePrice);
-          console.log(totalArray);
-          console.log(results[0].thumbnailImage);
-          console.log(results[0].productUrl);
-          console.log(results[0].offerType);
-          var trueItemName = (results[0].name);
-          var  unitPriceTotal= PriceArray.reduce((acc, val) => acc + val, 0);
-          console.log(unitPriceTotal)
-          var qtypriceTotal = totalArray.reduce((acc, val) => acc + val, 0);
-          var roundqtypriceTotal = Math.round ((qtypriceTotal) * 10)/10;
-          $("#unitPriceTotal").html(unitPriceTotal);
-          $("#qtyPriceTotal").html(roundqtypriceTotal);
-          console.log(qtypriceTotal)
-          appendProductList(trueItemName, qty, category, totalSalePrice, salePrice);
-          event.preventDefault();
-        });
-      }
-    });
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).done(function (response) {
+        var results = response.items;
+        var salePrice = results[0].salePrice;
+        PriceArray.push(salePrice);
+        var totalSalePrice = salePrice * qty;
+        totalArray.push(totalSalePrice);
+        var pieVals = trace1.values
+        var pieLabels = trace1.labels
+        pieVals.push(parseInt(qty));
+        pieLabels.push(category);
+        Plotly.redraw(graphDiv);
+        var qtypriceTotal = totalArray.reduce((acc, val) => acc + val, 0);
+        var roundqtypriceTotal = qtypriceTotal;
+        $("#qtyPriceTotal").text("$" + roundqtypriceTotal);
+        var trueItemName = (results[0].name);
+        appendProductList(trueItemName, qty, category, totalSalePrice, salePrice);
+        event.preventDefault();
+      });
+    }
   });
-  $(document).on("click", "tr", function() {
-            event.preventDefault();
-            $(this).remove();
-          });
-
-
-          // var arr = [1,2,3,4,6];
-//  var sum = arr.reduce((acc, val) => acc + val, 0);
-// console.log("Sun is :" + sum);
-
-//  var data = [
-//      {
-//          country: 'China',
-//          pop: 1409517397,
-//        },
-//        {
-//            country: 'India',
-//            pop: 1339180127,
-//          },
-//          {
-//              country: 'USA',
-//              pop: 324459463,
-//            },
-//            {
-//                country: 'Indonesia',
-//                pop: 263991379,
-//              }
-//            ]
-          //  var sum = data.reduce((acc, val) => {
-          //      return val.country == 'China' ? acc : acc + val.pop;
-          //    }, 0);
-          //    let sum = data
-          //      .filter(val => val.country !== 'China')
-          //      .reduce((acc, val) => acc + val.pop, 0);
+});
+$(document).on("click", "tr", function () {
+  event.preventDefault();
+  $(this).remove();
+});
+$(document).on("click", "#addZip", function () {
+  $("#map").css("display","block");
+});
+$(document).on("click", "#addButtons", function () {
+  $("#graphDiv").css("display","block");
+});
