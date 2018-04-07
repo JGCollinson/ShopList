@@ -1,6 +1,6 @@
 function productInfo() {}
 
-function latLongLookup(zip) {
+function latLongLookup(zip) {  
   var queryURL =
     "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/ycSGL95P7qvqRje1BBye5ASSV4LaYIrbGOJzDF1yP6Me5yQmG9YGPneweDWslVM5/info.json/" +
     zip +
@@ -16,6 +16,7 @@ function latLongLookup(zip) {
     mapobject.attr("lat", latitude);
     mapobject.attr("lng", longitude);
     initMap(latitude, longitude);
+    
   });
 }
 var map;
@@ -88,6 +89,7 @@ $(document).ready(function () {
     var zip = $("#zipInput").val().trim();
     console.log("Zip is:" + zip)
     latLongLookup(zip);
+    
   });
   $(document).on("click", "a.dropdown-item.upc", function () {
     category = $(this).text();
